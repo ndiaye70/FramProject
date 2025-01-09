@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-$primary:rgb(147, 139, 207);
 @import "_ipslVar.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+.active{
+    color: red;
+    background-color: black;
+}
+
