@@ -1,4 +1,4 @@
-import {Carte, Class, Departement, Etudiants} from "./ipslModule";
+import {Carte, Class as Classe, Departement, Etudiants} from "./ipslModule";
 
 export var deptGIT: Departement ={
   code:"GIT",
@@ -17,10 +17,16 @@ export var deptGEM: Departement ={
 
 export var listeDept: Departement[] =[deptGIT,deptGeC,deptGEM];
 
-export var ing3Info : Class={
+export var ing3Info : Classe={
   code:"ING3",
   nom:"Ing 3 informatique",
   filliere:{code:"INF",nom:"Informatique",dept:deptGIT},
+
+}
+export var ing3Civil : Classe={
+  code:"ING3",
+  nom:"Ing 3 Civil",
+  filliere:{code:"CIV",nom:"Civil",dept:deptGeC},
 
 }
 
@@ -35,6 +41,15 @@ export var etudiantSylla: Etudiants={
 }
 
 export var listeEtudiants:Etudiants []=[
+  {
+    code:"P3196",
+    nom:"Mbaye",
+    prenom:"Modou",
+    adresse:"Kolda",
+    email:"MbayeModou@gmail.com",
+    telephone:"789874309",
+    classe:ing3Civil
+  },
   etudiantSylla,
   {
     code:"P3126",
@@ -45,6 +60,16 @@ export var listeEtudiants:Etudiants []=[
     telephone:"786452309",
     classe:ing3Info
   },
+  {
+    code:"P3136",
+    nom:"Ndiaye",
+    prenom:"Fatou",
+    adresse:"Saint-Louis",
+    email:"NdiayeFatou@gmail.com",
+    telephone:"782562309",
+    classe:ing3Civil
+  },
+
   {
     code:"P3101",
     nom:"Sall",
@@ -60,6 +85,6 @@ export var carteSylla : Carte ={
   id:278176,
   anneDebut:2024,
   dateDeliv: new Date(Date.parse("2024-06-01")),
-  etudiant:etudiantSylla,
+  etudiant: etudiantSylla,
   payante:false
 }
