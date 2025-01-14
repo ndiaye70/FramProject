@@ -1,0 +1,25 @@
+/* Style pour la ligne sélectionnée */
+.selected-row {
+  background-color: #4CAF50; /* Vert foncé pour le fond */
+  color: white;  /* Texte blanc */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Ajout d'un effet au survol pour la ligne sélectionnée */
+.selected-row:hover {
+  background-color: #388E3C; /* Vert plus foncé au survol */
+}
+
+/* Style pour la ligne sélectionnée (si étudiant appartient à la filière INF) */
+.selected-row-INF {
+  background-color: #81c784; /* Vert clair */
+  color: white;
+  font-weight: bold;
+}
+
+/* Style pour la ligne sélectionnée (si étudiant appartient à une autre filière) */
+.selected-row-other {
+  background-color: #f44336; /* Rouge */
+  color: white;
+  font-weight: bold;
+}

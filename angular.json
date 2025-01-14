@@ -86,7 +86,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/app/liste-etudiant2/liste-etudiant2.component.scss"
             ],
             "scripts": []
           }

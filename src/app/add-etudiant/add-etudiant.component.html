@@ -1,0 +1,88 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Ajouter un Étudiant</h2>
+  <form (ngSubmit)="onSubmit()" #etudiantForm="ngForm">
+    <div class="form-group mb-3">
+      <label for="code" class="form-label">Code Étudiant</label>
+      <input
+        type="text"
+        id="code"
+        class="form-control"
+        name="code"
+        [(ngModel)]="newEtudiant.code"
+        required
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="prenom" class="form-label">Prénom</label>
+      <input
+        type="text"
+        id="prenom"
+        class="form-control"
+        name="prenom"
+        [(ngModel)]="newEtudiant.prenom"
+        required
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input
+        type="text"
+        id="nom"
+        class="form-control"
+        name="nom"
+        [(ngModel)]="newEtudiant.nom"
+        required
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="adresse" class="form-label">Adresse</label>
+      <input
+        type="text"
+        id="adresse"
+        class="form-control"
+        name="adresse"
+        [(ngModel)]="newEtudiant.adresse"
+        required
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="telephone" class="form-label">Téléphone</label>
+      <input
+        type="text"
+        id="telephone"
+        class="form-control"
+        name="telephone"
+        [(ngModel)]="newEtudiant.telephone"
+        required
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="newEtudiant.email"
+        required
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="classe" class="form-label">Classe</label>
+      <select
+        id="classe"
+        class="form-select"
+        name="classe"
+        [(ngModel)]="newEtudiant.classe"
+        required
+      >
+        <option *ngFor="let classe of classes" [ngValue]="classe">
+          {{ classe.nom }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!etudiantForm.form.valid">
+      Ajouter
+    </button>
+  </form>
+</div>

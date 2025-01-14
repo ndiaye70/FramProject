@@ -1,10 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
-@use "_ipslVar.scss";
-@use "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "ipslVar";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
+$evenRowColor: $success;
 
-.active{
-    color: red;
-    background-color: black;
+$evenRowColor: $dark;
+
+$oddRowColor: $info;
+
+$oddRowColor: $light;
+
+.rowTable
+{
+  @extend .p-2;
+  @extend .border-top;
+  font-size: $tableRowFontSize;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
+.ipslTable
+{
+  //@extend .table;
+  width: 100%;
+
+  .even
+  {
+    @extend .rowTable;
+    @extend .text-light;
+    background-color: $evenRowColor;
+    font-style: italic;
+    &:hover{
+      background-color: darken($evenRowColor,10);
+    }
+
+  }
+  .odd
+  {
+    @extend .rowTable;
+    @extend .text-dark;
+    background-color: $oddRowColor;
+    &:hover{
+      background-color: darken($oddRowColor,10);
+    }
+
+  }
+}
+
+
+
+
+.selectedRow
+{
+  @extend .rowTable;
+  @extend .bg-primary;
+  @extend .text-light;
+}
+
+.active{
+  color: red;
+  background-color: black;
+}
+
+
+
+.ipslVal{
+  font-size: 12px;
+  font-weight: bold;
+
+
+}
+
+.ipslLabel{
+  @extend .ipslVal;
+  @extend .text-primary;
+  text-decoration: underline;
+}
