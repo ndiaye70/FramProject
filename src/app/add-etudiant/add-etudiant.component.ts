@@ -1,48 +1,54 @@
 import { Component } from '@angular/core';
-import { Etudiants as Etudiant, Class as Classe } from "../ipslModule";
-import { listeEtudiants, ing3Info, ing3Civil } from "../data";
-import {FormsModule} from '@angular/forms';
+import {Etudiants, EtudiantDTO, Filliere} from "../ipslModule";
+import {listeDept, listeEtudiants} from "../data";
+import {NgForOf} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-add-etudiant',
   standalone: true,
-  templateUrl: './add-etudiant.component.html',
   imports: [
+    NgForOf,
     FormsModule
   ],
-  styleUrls: []
+  templateUrl: './add-etudiant.component.html',
+  styleUrl: './add-etudiant.component.scss'
 })
 export class AddEtudiantComponent {
-  // Liste des classes disponibles
-  classes: Classe[] = [ing3Info, ing3Civil];
+  listFilieres: Filliere[]=[];
+  etudiant:EtudiantDTO= {
+    code:'',
+    nom:'',
+    prenom:'',
+    adresse:'',
+    email:'',
+    telephone:'',
+    codeClasse:'',
+    codeFiliere:'',
+    codeDept:'GIT'
+  }
+  listeDept=listeDept;
 
-  // Étudiant à créer
-  newEtudiant: Etudiant = {
-    code: '',
-    nom: '',
-    prenom: '',
-    adresse: '',
-    telephone: '',
-    email: '',
-    classe: this.classes[0], // Par défaut, première classe de la liste
-  };
+  listeFiliere() {
+    console.log("liste filiere");
+    this.listFilieres=[];
+    if (!this.etudiant.codeDept){
+      console.log("Pas de departement");
+      return;
+    }
 
-  // Fonction appelée lors de la soumission du formulaire
-  onSubmit() {
-    // Ajouter le nouvel étudiant à la liste
-    listeEtudiants.push({ ...this.newEtudiant });
-
-    // Réinitialiser le formulaire
-    this.newEtudiant = {
-      code: '',
-      nom: '',
-      prenom: '',
-      adresse: '',
-      telephone: '',
-      email: '',
-      classe: this.classes[0],
-    };
-
-    alert('Étudiant ajouté avec succès !');
+    var filiereMap: Map<String, Filliere> = new Map();
+    const etudiants = listeEtudiants;
+    for (let i=0; i<etudiants.length; i++){
+      var filiere:Filliere = etudiants[i].classe.filliere;
+      console.log("filiere", filiere.code,"departement",filiere.dept.code);
+      if (filiere.dept.code==this.etudiant.codeDept)
+      {
+        if (!filiereMap.has(filiere.code)) {
+          filiereMap.set(filiere.code, filiere);
+          this.listFilieres.push(filiere);
+        }
+      }
+    }
   }
 }

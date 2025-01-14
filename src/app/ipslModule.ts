@@ -11,6 +11,8 @@ export interface Filliere {
 
 }
 
+
+
 export interface Class{
   code:String;
   nom:String;
@@ -27,6 +29,19 @@ export interface Etudiants {
   classe:Class;
 
 }
+
+export interface EtudiantDTO{
+  code: string;
+  nom: string;
+  prenom: string;
+  adresse: string;
+  telephone: string;
+  email: string;
+  codeClasse: string;
+  codeFiliere: string;
+  codeDept: string;
+}
+
 export interface Carte {
   id:number;
   dateDeliv:Date;
